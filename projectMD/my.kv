@@ -1,0 +1,115 @@
+<MyGrid>
+
+    submit_button: submit_button
+    submit_label: submit_label
+    submit_minus: submit_minus
+    submit_reset: submit_reset
+
+
+    counter_button: counter_button
+    counter_label: counter_label
+    counter_minus: counter_minus
+    counter_reset: counter_reset
+
+    timer_label: timer_label
+
+    FloatLayout:
+        size: root.width, root.height
+
+        Button:
+            id: counter_button
+            on_press: root.red_press()
+            background_color: 255, 30/255, 30/255, 1
+            font_size: 20
+            size_hint: 0.5, 0.75
+        Label:
+            pos_hint: {"x": -0.26, "y": -0.125}
+            id: counter_label
+            text: "0"
+            bold: True
+            font_size: 300
+
+        FloatLayout:
+            size: root.width, root.height
+            size: 0.5, 0.5
+            BoxLayout:
+                pos_hint: {'x': .001, 'y': 0.75}
+                orientation: 'horizontal'
+                size_hint: None, None
+                size: 100, 50
+
+                Button:
+                    id: counter_minus
+                    background_color: 255, 30/255, 30/255, 1
+                    text: "-"
+                    on_press: root.red_minus()
+
+                Button:
+                    id: counter_reset
+                    background_color: 255, 30/255, 30/255, 1
+                    text: "Reset"
+                    on_press: root.red_reset()
+
+
+        Button:
+            pos_hint: {"x": 0.5}
+            id: submit_button
+            on_press: root.blue_press()
+            background_color: 30/255, 30/255, 255, 1
+            font_size: 20
+            size_hint: 0.5, 0.75
+        Label:
+            pos_hint: {"x": 0.26, "y": -0.125}
+            id: submit_label
+            text: "0"
+            bold: True
+            font_size: 300
+
+        FloatLayout:
+            size: 0.5, 0.5
+            size: root.width, root.height
+            BoxLayout:
+                pos_hint: {'x': 0.874, 'y': 0.75}
+                orientation: 'horizontal'
+                size_hint: None, None
+                size: 100, 50
+
+                Button:
+                    id: submit_minus
+                    background_color: 30/255, 30/255, 255, 1
+                    text: "-"
+                    on_press: root.blue_minus()
+
+                Button:
+                    id: submit_reset
+                    background_color: 30/255, 30/255, 255, 1
+                    text: "Reset"
+                    on_press: root.blue_reset()
+
+
+        FloatLayout:
+            size: root.width, root.height
+            Label:
+                pos_hint: {'y': 0.38}
+                bold: True
+                id: timer_label
+                font_size: 90
+                text: '00:00'
+
+            Button:
+                size_hint: None, None
+                background_color: 0.05, 0.6 , 0.05, 1
+                size: 80, 40
+                pos_hint: {'x': 0.45, 'y': 0.68}
+                text: 'Start'
+                on_press: root.start_timer()
+
+            Button:
+                size_hint: None, None
+                background_color: 0.6, 0.05, 0.05, 1
+                size: 80, 40
+                pos_hint: {'x': 0.45, 'y': 0.61}
+                text: 'Stop'
+                on_press: root.stop_timer()
+
+
